@@ -24,4 +24,7 @@ sealed class BaseViewHolder(_binding: View):RecyclerView.ViewHolder(_binding) {
     class BaseTitleViewHolder(private val v:View) : BaseViewHolder(v)
     { val binding = LayoutRecyclerTitleItemBinding.bind(v) }
 
+    class BaseRandomViewHolder(private val v:View) : BaseViewHolder(v)
+    { val binding = OfferPostsItemBinding.bind(v) }
+
 }

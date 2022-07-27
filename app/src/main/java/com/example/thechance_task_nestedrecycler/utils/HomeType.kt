@@ -6,5 +6,6 @@ enum class HomeType{
     OFFER,
     TITLE,
     HEIGHT_CARD,
-    SPECIFIC_CARD
+    SPECIFIC_CARD,
+    RANDOM_OFFER
 }

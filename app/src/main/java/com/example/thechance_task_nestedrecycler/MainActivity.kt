@@ -2,6 +2,7 @@ package com.example.thechance_task_nestedrecycler
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.BaseAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thechance_task_nestedrecycler.adapters.baseAdapter.BaseAdapters
@@ -11,6 +12,10 @@ import com.example.thechance_task_nestedrecycler.db.DataStore
 import com.example.thechance_task_nestedrecycler.linkedList.MyLinkedList
 import com.example.thechance_task_nestedrecycler.utils.HomeType
 import com.example.thechance_task_nestedrecycler.utils.HomeViewType
+import com.example.thechance_task_nestedrecycler.utils.translateTo
+import java.util.*
+import java.util.concurrent.Delayed
+import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,11 +58,14 @@ class MainActivity : AppCompatActivity() {
             itemsList.add(HomeViewType(DataStore.threeGetListCategories(),HomeType.CATEGORY))
             itemsList.add(HomeViewType(DataStore.threeGetListImagesForSlider(),HomeType.SLIDER))
 
+            Timer("SettingUp", false).schedule(100) {
+                itemsList.addAll(DataStore.getListRandomOfferPost().map {
+                    it.translateTo()
+                })
+            }
+
             adapter = BaseAdapters(itemsList)
             recBaseActivity.adapter = adapter
-
         }
-
-
     }
 }

@@ -6,6 +6,7 @@ import com.example.thechance_task_nestedrecycler.model.Categories
 import com.example.thechance_task_nestedrecycler.model.Details
 import com.example.thechance_task_nestedrecycler.model.Images
 import com.example.thechance_task_nestedrecycler.model.Title
+import java.util.*
 
 object DataStore {
 
@@ -17,6 +18,7 @@ object DataStore {
     private val listTitleMobiles = MyLinkedList<Title>()
     private val listSpecificDetails = MyLinkedList<Details>()
     private val listHeightDetails = MyLinkedList<Details>()
+    private val listRandomOfferPost = MyLinkedList<Images>()
 
     fun getListImagesForSlider(): MyLinkedList<Images>{
         listImagesForSlider.add(Images(1, R.drawable.slid_two))
@@ -143,6 +145,16 @@ object DataStore {
             " / 11%"
         ))
         return listSpecificDetails
+    }
+
+    fun getListRandomOfferPost() : MyLinkedList<Images>{
+        listRandomOfferPost.add(Images(1,R.drawable.big_image_offer))
+        listRandomOfferPost.add(Images(2,R.drawable.big_image_offer_two))
+        listRandomOfferPost.add(Images(3,R.drawable.big_image_offer_three))
+        listRandomOfferPost.add(Images(4,R.drawable.big_image_offer))
+        listRandomOfferPost.add(Images(5,R.drawable.big_image_offer_two))
+        listRandomOfferPost.add(Images(6,R.drawable.big_image_offer_three))
+        return listRandomOfferPost
     }
 
     /*_______________________________________________________________________*/
@@ -296,47 +308,47 @@ object DataStore {
     private val threeListHeightDetails = MyLinkedList<Details>()
 
     fun threeGetListImagesForSlider(): MyLinkedList<Images>{
-        twoListImagesForSlider.add(Images(1, R.drawable.slid_two))
-        twoListImagesForSlider.add(Images(2, R.drawable.slide_three))
-        twoListImagesForSlider.add(Images(3, R.drawable.slide_zero))
-        return twoListImagesForSlider
+        threeListImagesForSlider.add(Images(1, R.drawable.slid_two))
+        threeListImagesForSlider.add(Images(2, R.drawable.slide_three))
+        threeListImagesForSlider.add(Images(3, R.drawable.slide_zero))
+        return threeListImagesForSlider
     }
 
     fun threeGetListImagesForOffer(): MyLinkedList<Images>{
-        twoListImagesForOffer.add(Images(1, R.drawable.offer_first))
-        twoListImagesForOffer.add(Images(2, R.drawable.second_offer))
-        twoListImagesForOffer.add(Images(3, R.drawable.second_offer))
-        twoListImagesForOffer.add(Images(4, R.drawable.forth_offer))
-        return twoListImagesForOffer
+        threeListImagesForOffer.add(Images(1, R.drawable.offer_first))
+        threeListImagesForOffer.add(Images(2, R.drawable.second_offer))
+        threeListImagesForOffer.add(Images(3, R.drawable.second_offer))
+        threeListImagesForOffer.add(Images(4, R.drawable.forth_offer))
+        return threeListImagesForOffer
     }
 
     fun threeGetListCategories(): MyLinkedList<Categories>{
-        twoListCategories.add(Categories(1, R.drawable.char_gaming,"Gaming"))
-        twoListCategories.add(Categories(2, R.drawable.categories_lab,"Laptops"))
-        twoListCategories.add(Categories(3, R.drawable.pc_categories,"PCs"))
-        twoListCategories.add(Categories(4, R.drawable.tv_categories,"TVs"))
-        twoListCategories.add(Categories(5, R.drawable.beauty_categories,"Beauty"))
-        twoListCategories.add(Categories(6, R.drawable.shose_categories,"Shoes"))
-        twoListCategories.add(Categories(7, R.drawable.one_category,"Mobiles"))
-        twoListCategories.add(Categories(8, R.drawable.perfume_categories,"Perfume"))
-        twoListCategories.add(Categories(9, R.drawable.stationery_categories,"Stationery"))
-        twoListCategories.add(Categories(10, R.drawable.furniture_categories,"Furniture"))
-        return twoListCategories
+        threeListCategories.add(Categories(1, R.drawable.char_gaming,"Gaming"))
+        threeListCategories.add(Categories(2, R.drawable.categories_lab,"Laptops"))
+        threeListCategories.add(Categories(3, R.drawable.pc_categories,"PCs"))
+        threeListCategories.add(Categories(4, R.drawable.tv_categories,"TVs"))
+        threeListCategories.add(Categories(5, R.drawable.beauty_categories,"Beauty"))
+        threeListCategories.add(Categories(6, R.drawable.shose_categories,"Shoes"))
+        threeListCategories.add(Categories(7, R.drawable.one_category,"Mobiles"))
+        threeListCategories.add(Categories(8, R.drawable.perfume_categories,"Perfume"))
+        threeListCategories.add(Categories(9, R.drawable.stationery_categories,"Stationery"))
+        threeListCategories.add(Categories(10, R.drawable.furniture_categories,"Furniture"))
+        return threeListCategories
     }
 
     fun threeGetListTitleForYou(): MyLinkedList<Title>{
-        twoListTitleForYou.add(Title(1, "For You"))
-        return twoListTitleForYou
+        threeListTitleForYou.add(Title(1, "For You"))
+        return threeListTitleForYou
     }
 
     fun threeGetListTitleMobiles(): MyLinkedList<Title>{
-        twoListTitleMobiles.add(Title(1, "Mobiles"))
-        return twoListTitleMobiles
+        threeListTitleMobiles.add(Title(1, "Mobiles"))
+        return threeListTitleMobiles
     }
 
     fun threeGetListSpecificDetails(): MyLinkedList<Details>{
 
-        twoListSpecificDetails.add(Details(
+        threeListSpecificDetails.add(Details(
             1,
             R.drawable.mouse_details_removebg_preview,
             "Razer Death Adder Essential Gaming Mouse",
@@ -344,7 +356,7 @@ object DataStore {
             " / 14%"
         ))
 
-        twoListSpecificDetails.add(Details(
+        threeListSpecificDetails.add(Details(
             2,
             R.drawable.fold_samsong_details_removebg_preview,
             "SAMSUNG Galaxy Z Fold 3 5G Cell Phone, Factory Unlocked 2-in-1 ",
@@ -352,7 +364,7 @@ object DataStore {
             " / 5%"
         ))
 
-        twoListSpecificDetails.add(Details(
+        threeListSpecificDetails.add(Details(
             3,
             R.drawable.head_phone_two_removebg_preview,
             "Razer Kraken Ultimate RGB USB Gaming Headset",
@@ -360,7 +372,7 @@ object DataStore {
             " / 10%"
         ))
 
-        twoListSpecificDetails.add(Details(
+        threeListSpecificDetails.add(Details(
             4,
             R.drawable.watch_gld_details_removebg_preview,
             "Vilsaw Smart Watch, Fitness Smartwatch with Heart Rate Monitor ",
@@ -368,7 +380,7 @@ object DataStore {
             " / 16%"
         ))
 
-        twoListSpecificDetails.add(Details(
+        threeListSpecificDetails.add(Details(
             5,
             R.drawable.toutch_watch_preview,
             "Amazfit T-Rex Pro Smart Watch for Men Rugged Outdoor GPS Fitness Watch",
@@ -376,11 +388,11 @@ object DataStore {
             " / 13%"
         ))
 
-        return twoListSpecificDetails
+        return threeListSpecificDetails
     }
 
     fun threeGetListHeightDetails(): MyLinkedList<Details>{
-        twoListHeightDetails.add(Details(
+        threeListHeightDetails.add(Details(
             1,
             R.drawable.tecno_fif_g_removebg_preview,
             "Tecno Pova best cheap phone for gaming",
@@ -388,7 +400,7 @@ object DataStore {
             " / 4%"
         ))
 
-        twoListHeightDetails.add(Details(
+        threeListHeightDetails.add(Details(
             2,
             R.drawable.fold_samsong_details_removebg_preview,
             "SAMSUNG Galaxy Z Fold 3 5G Cell Phone, Factory Unlocked 2-in-1 ",
@@ -396,7 +408,7 @@ object DataStore {
             " / 5%"
         ))
 
-        twoListHeightDetails.add(Details(
+        threeListHeightDetails.add(Details(
             3,
             R.drawable.one_plus_detailc_removebg_preview,
             "OnePlus Nord N20 5G |Android Smart Phone",
@@ -404,7 +416,7 @@ object DataStore {
             " / 6%"
         ))
 
-        twoListHeightDetails.add(Details(
+        threeListHeightDetails.add(Details(
             4,
             R.drawable.pixel_fore_removebg_preview,
             "Google Pixel 6 Pro - 5G Android Phone - Unlocked",
@@ -412,14 +424,14 @@ object DataStore {
             " / 12%"
         ))
 
-        twoListHeightDetails.add(Details(
+        threeListHeightDetails.add(Details(
             5,
             R.drawable.samsong_details_ss_removebg_preview,
             "SAMSUNG Galaxy S22 Cell Phone, Factory Unlocked Android Smartphone, 128GB",
             "$ 890",
             " / 11%"
         ))
-        return twoListHeightDetails
+        return threeListHeightDetails
     }
 
 

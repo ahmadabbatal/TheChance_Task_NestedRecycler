@@ -68,18 +68,26 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
                 )
                 BaseViewHolder.BaseSpecificViewHolder(view)
             }
+            VIEW_RANDOM_OFFER -> {
+                val view = LayoutInflater.from(parent.context).inflate(
+                    R.layout.offer_posts_item,
+                    parent, false
+                )
+                BaseViewHolder.BaseRandomViewHolder(view)
+            }
             else -> throw Exception("UnKnow View Type")
         }
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        when(holder){
-           is BaseViewHolder.BaseSliderViewHolder -> bindSlider(holder,position)
-           is BaseViewHolder.BaseCategoryViewHolder -> bindCategory(holder,position)
-           is BaseViewHolder.BaseTitleViewHolder -> bindTitle(holder,position)
-           is BaseViewHolder.BaseOfferViewHolder -> bindOffer(holder,position)
-           is BaseViewHolder.BaseSpecificViewHolder -> bindDetails(holder,position)
-           is BaseViewHolder.BaseHeightDetailsViewHolder -> bindHeightDetails(holder,position)
+        when (holder) {
+            is BaseViewHolder.BaseSliderViewHolder -> bindSlider(holder, position)
+            is BaseViewHolder.BaseCategoryViewHolder -> bindCategory(holder, position)
+            is BaseViewHolder.BaseTitleViewHolder -> bindTitle(holder, position)
+            is BaseViewHolder.BaseOfferViewHolder -> bindOffer(holder, position)
+            is BaseViewHolder.BaseSpecificViewHolder -> bindDetails(holder, position)
+            is BaseViewHolder.BaseHeightDetailsViewHolder -> bindHeightDetails(holder, position)
+            is BaseViewHolder.BaseRandomViewHolder -> bindOffer(holder, position)
         }
     }
 
@@ -87,9 +95,11 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
         val slider = items[position]?.item as MyLinkedList<Images>
         val adapter = SliderAdapter(slider)
         holder.binding.apply {
-            recSlider.layoutManager = LinearLayoutManager(root.context,
+            recSlider.layoutManager = LinearLayoutManager(
+                root.context,
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
             recSlider.adapter = adapter
         }
     }
@@ -98,8 +108,10 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
         val category = items.get(position)?.item as MyLinkedList<Categories>
         val adapter = CategoryAdapter(category)
         holder.binding.apply {
-            recCategory.layoutManager = StaggeredGridLayoutManager(2,
-                StaggeredGridLayoutManager.HORIZONTAL)
+            recCategory.layoutManager = StaggeredGridLayoutManager(
+                2,
+                StaggeredGridLayoutManager.HORIZONTAL
+            )
             recCategory.adapter = adapter
         }
     }
@@ -108,9 +120,11 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
         val title = items[position]?.item as MyLinkedList<Title>
         val adapter = TitleAdapter(title)
         holder.binding.apply {
-            recTitle.layoutManager = LinearLayoutManager(root.context,
+            recTitle.layoutManager = LinearLayoutManager(
+                root.context,
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
             recTitle.adapter = adapter
         }
     }
@@ -119,20 +133,27 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
         val details = items[position]?.item as MyLinkedList<Details>
         val adapter = DetailsCardAdapter(details)
         holder.binding.apply {
-            recDetails.layoutManager = LinearLayoutManager(root.context,
+            recDetails.layoutManager = LinearLayoutManager(
+                root.context,
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
             recDetails.adapter = adapter
         }
     }
 
-    private fun bindHeightDetails(holder: BaseViewHolder.BaseHeightDetailsViewHolder, position: Int) {
+    private fun bindHeightDetails(
+        holder: BaseViewHolder.BaseHeightDetailsViewHolder,
+        position: Int
+    ) {
         val details = items[position]?.item as MyLinkedList<Details>
         val adapter = HeightCardAdapter(details)
         holder.binding.apply {
-            recHeightDetails.layoutManager = LinearLayoutManager(root.context,
+            recHeightDetails.layoutManager = LinearLayoutManager(
+                root.context,
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
             recHeightDetails.adapter = adapter
         }
     }
@@ -141,10 +162,19 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
         val offer = items[position]?.item as MyLinkedList<Images>
         val adapter = OfferAdapter(offer)
         holder.binding.apply {
-            recOffer.layoutManager = LinearLayoutManager(root.context,
+            recOffer.layoutManager = LinearLayoutManager(
+                root.context,
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
             recOffer.adapter = adapter
+        }
+    }
+
+    private fun bindOffer(holder: BaseViewHolder.BaseRandomViewHolder, position: Int) {
+        val offer = items[position]?.item as Images
+        holder.binding.apply {
+            offer.image.let { imgRandomOfferImage.setImageResource(it) }
         }
     }
 
@@ -156,6 +186,7 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
             HomeType.TITLE -> VIEW_TITLE
             HomeType.HEIGHT_CARD -> VIEW_HEIGHT_CARD
             HomeType.SPECIFIC_CARD -> VIEW_SPECIFIC_CARD
+            HomeType.RANDOM_OFFER -> VIEW_RANDOM_OFFER
             else -> throw java.lang.IndexOutOfBoundsException()
         }
     }
@@ -169,6 +200,6 @@ class BaseAdapters(private val items: MyLinkedList<HomeViewType<Any>>) :
         private const val VIEW_TITLE = 3
         private const val VIEW_HEIGHT_CARD = 4
         private const val VIEW_SPECIFIC_CARD = 5
+        private const val VIEW_RANDOM_OFFER = 6
     }
-
 }

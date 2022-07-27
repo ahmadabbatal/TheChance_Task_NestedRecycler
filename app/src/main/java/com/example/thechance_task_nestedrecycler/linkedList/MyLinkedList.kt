@@ -1,6 +1,10 @@
 package com.example.thechance_task_nestedrecycler.linkedList
 
+import com.example.thechance_task_nestedrecycler.db.DataStore
+import com.example.thechance_task_nestedrecycler.utils.translateTo
 import linkedList.LinkedInProperties
+import java.util.*
+import kotlin.concurrent.schedule
 
 class MyLinkedList<T> : MutableCollection<T>,
     Collection<T>,
@@ -20,7 +24,7 @@ class MyLinkedList<T> : MutableCollection<T>,
 
     override fun addAll(elements: Collection<T>): Boolean {
         for (element in elements)
-            append(element)
+                append(element)
         return true
     }
 
