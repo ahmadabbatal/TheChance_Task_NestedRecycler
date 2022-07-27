@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="190dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/item_back_ground"
+    app:cardCornerRadius="@dimen/card_corner"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/img_details_card_item"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/toutch_watch_preview"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo"/>
+
+        <TextView
+            android:id="@+id/txt_long_card_description_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font_color"
+            android:textSize="@dimen/smallest_font_size"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/oneplus_nord_n20"
+            app:layout_constraintTop_toBottomOf="@+id/img_details_card_item"/>
+
+        <TextView
+            android:id="@+id/txt_long_card_price_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_font_size"
+            android:layout_marginEnd="30dp"
+            android:text="@string/_18_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_long_card_description_item"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/txt_long_card_offer_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/font_offer_color"
+            android:textSize="@dimen/second_price_font_size"
+            android:text="@string/_14"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintStart_toEndOf="@+id/txt_long_card_price_item"
+            app:layout_constraintTop_toBottomOf="@+id/txt_long_card_description_item"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
